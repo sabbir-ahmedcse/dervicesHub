@@ -1,0 +1,42 @@
+
+[
+  {
+    "id": 1,
+    "name": "Starter Bundle",
+    "slug": "starter-bundle",
+    "minServices": 2,
+    "maxServices": 2,
+    "discountType": "percentage",
+    "discountValue": 10,
+    "title": "Choose Any 2 Services",
+    "description": "Select any two services and get an instant discount.",
+    "badge": "Save 10%",
+    "active": true
+  },
+  {
+    "id": 2,
+    "name": "Business Bundle",
+    "slug": "business-bundle",
+    "minServices": 3,
+    "maxServices": 4,
+    "discountType": "percentage",
+    "discountValue": 15,
+    "title": "Grow Your Business",
+    "description": "Get more value when you choose three or four services.",
+    "badge": "Save 15%",
+    "active": true
+  },
+  {
+    "id": 3,
+    "name": "Premium Bundle",
+    "slug": "premium-bundle",
+    "minServices": 5,
+    "maxServices": null,
+    "discountType": "percentage",
+    "discountValue": 20,
+    "title": "Complete Business Solution",
+    "description": "Choose five or more services and enjoy our best bundle offer.",
+    "badge": "Save 20%",
+    "active": true
+  }
+]
