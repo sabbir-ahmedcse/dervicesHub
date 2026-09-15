@@ -3,6 +3,8 @@ import RootLayout from "../LayOut/RootLayout";
 import Home from "../Pages/Home";
 import AllService from "../Pages/AllService";
 import ServiceDetails from "../Components/ServiceDetails";
+import Cart from "../Pages/Cart";
+import Checkout from "../Pages/Checkout";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +45,16 @@ export const router = createBrowserRouter([
           return service;
         },
         element: <ServiceDetails />,
+      },
+
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+
+      {
+        path: "checkout",
+        element: <Checkout />,
       },
     ],
   },

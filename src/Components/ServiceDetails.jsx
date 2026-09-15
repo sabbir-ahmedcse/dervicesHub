@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { useLoaderData, Link } from "react-router";
 import {
   Star,
@@ -6,10 +6,21 @@ import {
   CheckCircle,
   ArrowLeft,
   Tag,
+  Check,
 } from "lucide-react";
+import { useContext } from "react";
+import { CartContext } from "../Context/CartContext.jsx";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
+  const { addToCart } = useContext(CartContext);
+  const [added, setAdded] = useState(false);
+
+  const handleAddToCart = () => {
+    addToCart(service);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
+  };
 
   return (
     <div className="bg-gray-50">
@@ -170,9 +181,21 @@ const ServiceDetails = () => {
                 </div>
               </div>
 
-              <button className="rounded-xl bg-blue-600 px-8 py-3 font-semibold text-white transition hover:bg-blue-700">
-                Book This Service
-              </button>
+              {added ? (
+                <Link
+                  to="/cart"
+                  className="flex items-center gap-2 rounded-xl bg-green-600 px-8 py-3 font-semibold text-white transition hover:bg-green-700"
+                >
+                  <Check size={18} /> View Cart
+                </Link>
+              ) : (
+                <button
+                  onClick={handleAddToCart}
+                  className="rounded-xl bg-blue-600 px-8 py-3 font-semibold text-white transition hover:bg-blue-700"
+                >
+                  Book This Service
+                </button>
+              )}
 
             </div>
           </div>

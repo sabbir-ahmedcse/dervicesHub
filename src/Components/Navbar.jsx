@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, NavLink } from "react-router";
 import { ShoppingCart, Menu, X, Sparkles } from "lucide-react";
+import { CartContext } from "../Context/CartContext.jsx";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  // চাইলে পরে Context/Redux থেকে cart count আনতে পারবেন
-  const cartCount = 3;
+  const { cart } = useContext(CartContext);
+  const cartCount = cart.length;
 
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "All Services", path: "/allService" },
-    { name: "Bundle Deals", path: "/bundles" },
-    { name: "Contact", path: "/contact" },
   ];
 
   const linkClass = ({ isActive }) =>
@@ -73,8 +71,8 @@ const Navbar = () => {
 
         {/* CTA (desktop) */}
         <Link
-          to="/services"
-          className="btn btn-primary hidden md:inline-flex rounded-full px-5 shadow-md hover:shadow-lg transition-all"
+          to="/allService"
+          className="hidden md:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-2.5 font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:shadow-blue-500/50 hover:scale-105"
         >
           Explore Services
         </Link>
@@ -100,7 +98,7 @@ const Navbar = () => {
           ))}
           <li className="mt-2">
             <Link
-              to="/services"
+              to="/allService"
               onClick={() => setIsOpen(false)}
               className="btn btn-primary rounded-full"
             >
